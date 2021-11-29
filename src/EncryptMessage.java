@@ -1,6 +1,7 @@
 import java.io.UnsupportedEncodingException;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
+import java.util.Base64;
 import java.util.Scanner;
 
 import javax.crypto.BadPaddingException;
@@ -21,9 +22,15 @@ public class EncryptMessage {
             text = scannerObj.nextLine().getBytes("UTF8");
             
             KeyGenerator keygen = KeyGenerator.getInstance("AES");
+            keygen.init(256);
             SecretKey key = keygen.generateKey();
+
+            // learning format of key
+            byte[] clearKey = key.getEncoded();
+            String output = Base64.getEncoder().withoutPadding().encodeToString(clearKey);
+            System.out.println(output);
+
             Cipher cipher = Cipher.getInstance("AES");
-            
             cipher.init(Cipher.ENCRYPT_MODE, key);
             String s = new String(text);
             System.out.println("Preencryption: " + s);

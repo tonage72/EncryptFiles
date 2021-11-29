@@ -37,9 +37,16 @@ public class GenKey {
             e.printStackTrace();
         }
 
-        try {
-            FileWriter myWriter = new FileWriter("AESKey.txt");
-        }
+        System.out.println(key);
 
+        // try {
+        //     FileWriter myWriter = new FileWriter("AESKey.txt");
+        //     myWriter.write("key");
+        //     myWriter.close();
+        //     System.out.println("Wrote to AESkey");
+        // } catch (IOException e) {
+        //     System.out.println("Error in writing to file");
+        //     e.printStackTrace();
+        // }
     }
 }

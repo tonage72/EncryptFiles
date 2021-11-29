@@ -28,7 +28,8 @@ public class EncryptFiles {
 
         switch (mMenuChoice) {
             case 1:
-                new GenKey();
+                GenKey genKeyObj = new GenKey();
+                genKeyObj.genAES();
             break;
             case 2:
                 new EncryptMessage();
