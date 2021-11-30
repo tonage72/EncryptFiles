@@ -1,6 +1,3 @@
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
@@ -16,37 +13,12 @@ public class GenKey {
     String message;
 
     public GenKey() throws InvalidKeyException, UnsupportedEncodingException, NoSuchAlgorithmException, NoSuchPaddingException, IllegalBlockSizeException, BadPaddingException {
-        message = "Generate Key Class Here";
+        message = "Genkey constructor message3";
         System.out.println(message);
     }
 
     public void genAES() throws NoSuchAlgorithmException {
         KeyGenerator keygen = KeyGenerator.getInstance("AES");
         SecretKey key = keygen.generateKey();
-        
-        try {
-            File myObj = new File("AESKey.txt");
-            if (myObj.createNewFile()) {
-                System.out.println("File created: " + myObj.getName());
-
-            } else {
-                System.out.println("File already exists.");
-            }
-        } catch (IOException e) {
-            System.out.println("An error occurred in file creation.");
-            e.printStackTrace();
-        }
-
-        System.out.println(key);
-
-        // try {
-        //     FileWriter myWriter = new FileWriter("AESKey.txt");
-        //     myWriter.write("key");
-        //     myWriter.close();
-        //     System.out.println("Wrote to AESkey");
-        // } catch (IOException e) {
-        //     System.out.println("Error in writing to file");
-        //     e.printStackTrace();
-        // }
     }
 }
