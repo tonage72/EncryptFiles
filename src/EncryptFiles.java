@@ -19,7 +19,6 @@ public class EncryptFiles {
 
     static void getMenuSelection() throws InvalidKeyException, UnsupportedEncodingException, NoSuchAlgorithmException, NoSuchPaddingException, IllegalBlockSizeException, BadPaddingException {
         
-        System.out.print("\033[H\033[2J");
         System.out.println("1-Generate Key");
         System.out.println("2-Encrypt message");
         System.out.println("3-Decrypt message");

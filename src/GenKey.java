@@ -13,7 +13,7 @@ public class GenKey {
     String message;
 
     public GenKey() throws InvalidKeyException, UnsupportedEncodingException, NoSuchAlgorithmException, NoSuchPaddingException, IllegalBlockSizeException, BadPaddingException {
-        message = "Genkey constructor message3";
+        message = "Genkey constructor message";
         System.out.println(message);
     }
 
