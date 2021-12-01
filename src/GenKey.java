@@ -1,7 +1,10 @@
+import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.security.InvalidKeyException;
+import java.security.KeyStore;
+import java.security.KeyStoreException;
 import java.security.NoSuchAlgorithmException;
-
+import java.security.cert.CertificateException;
 import javax.crypto.BadPaddingException;
 import javax.crypto.IllegalBlockSizeException;
 import javax.crypto.KeyGenerator;
@@ -17,8 +20,29 @@ public class GenKey {
         System.out.println(message);
     }
 
-    public void genAES() throws NoSuchAlgorithmException {
+    public void genAES() throws NoSuchAlgorithmException, KeyStoreException, CertificateException, IOException {
+        
         KeyGenerator keygen = KeyGenerator.getInstance("AES");
         SecretKey key = keygen.generateKey();
+
+        char[] password = {'p', 'a', 's', 's', '1', '2', '3'};
+
+        KeyStore ks = KeyStore.getInstance("JKS");
+        
+        java.io.FileInputStream fis = null;
+        try {
+            fis = new java.io.FileInputStream("keyStoreName");
+            ks.load(fis, password);
+        } finally {
+            if (fis != null) {
+                fis.close();
+            }
+        }
+
+        KeyStore.ProtectionParameter protParam = new KeyStore.PasswordProtection(password);
+
+        // get my private key
+        KeyStore.PrivateKeyEntry pKeyEntry = (KeyStore.PrivateKeyEntry)
+
     }
-}
+} 
