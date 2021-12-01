@@ -25,7 +25,7 @@ public class GenKey {
         KeyGenerator keygen = KeyGenerator.getInstance("AES");
         SecretKey key = keygen.generateKey();
 
-        char[] password = {'p', 'a', 's', 's', '1', '2', '3'};
+        char[] password = "pass123".toCharArray();
 
         KeyStore ks = KeyStore.getInstance("JKS");
         
@@ -37,12 +37,6 @@ public class GenKey {
             if (fis != null) {
                 fis.close();
             }
-        }
-
-        KeyStore.ProtectionParameter protParam = new KeyStore.PasswordProtection(password);
-
-        // get my private key
-        KeyStore.PrivateKeyEntry pKeyEntry = (KeyStore.PrivateKeyEntry)
-
+        }        
     }
 } 

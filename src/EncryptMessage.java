@@ -15,7 +15,7 @@ public class EncryptMessage {
     static byte[] text;
     static Scanner scannerObj = new Scanner(System.in);
     
-    EncryptMessage() throws UnsupportedEncodingException, NoSuchAlgorithmException, NoSuchPaddingException, InvalidKeyException, IllegalBlockSizeException, BadPaddingException {
+    public void doEncryption() throws UnsupportedEncodingException, NoSuchAlgorithmException, NoSuchPaddingException, InvalidKeyException, IllegalBlockSizeException, BadPaddingException {
         
             System.out.println("What should be encrypted?");
             text = scannerObj.nextLine().getBytes("UTF8");
